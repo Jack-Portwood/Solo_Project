@@ -11,6 +11,23 @@ class Artist
     @info = options ['info']
   end
 
+  def name()
+    return @name
+  end
+
+  def style()
+    return @style
+  end
+
+  def info()
+    return @info
+  end
+
+  
+
+
+
+
   #CREATE
   def save()
     sql = "INSERT INTO artists

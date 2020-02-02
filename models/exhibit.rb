@@ -14,6 +14,29 @@ class Exhibit
 
   end
 
+  def name()
+    return @name
+  end
+
+  def style()
+    return @style
+  end
+
+  def info()
+    return @info
+  end
+
+   def artist_id()
+   return @artist_id
+ end
+
+
+
+
+
+
+
+
   #CREATE
   def save()
     sql = "INSERT INTO exhibits
