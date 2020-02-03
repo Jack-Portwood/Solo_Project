@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Exhibit
 
-  attr_accessor :title, :period, :info, :artist_id
+  attr_accessor :title, :style, :info, :artist_id
   attr_reader :id
 
   def initialize(options)
@@ -14,8 +14,8 @@ class Exhibit
 
   end
 
-  def name()
-    return @name
+  def title()
+    return @title
   end
 
   def style()
@@ -30,12 +30,11 @@ class Exhibit
    return @artist_id
  end
 
-
-
-
-
-
-
+ #make delete all
+ def self.delete_all()
+   sql = "DELETE FROM exhibits;"
+   SqlRunner.run(sql)
+ end
 
   #CREATE
   def save()

@@ -13,6 +13,6 @@ CREATE TABLE exhibits (
   title VARCHAR(255),
   style VARCHAR(255),
   info VARCHAR(255),
-  artist_id INT REFERENCES artists(id)
+  artist_id INT REFERENCES artists(id) ON DELETE CASCADE 
 
 );

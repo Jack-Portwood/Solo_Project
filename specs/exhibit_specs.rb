@@ -3,17 +3,17 @@ require("minitest/reporters")
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-require_relative('../exhibit')
-require_relative('../artist')
+require_relative('../models/exhibit')
+require_relative('../models/artist')
 
 class ExhibitTest < MiniTest::Test
 
   def setup
-    @exhibit1 = exhibit.new({
+    @exhibit1 = Exhibit.new({
       'title' => 'artz',
       'style'=> 'Art',
       'info' => 'Likes drawing trees',
-      'artist_id'  1
+      'artist_id' => 1
       })
     end
 
@@ -23,7 +23,7 @@ class ExhibitTest < MiniTest::Test
     end
 
     def test_style()
-      result = @exhibit1.test_style
+      result = @exhibit1.style
       assert_equal('Art', result)
     end
 
@@ -33,7 +33,7 @@ class ExhibitTest < MiniTest::Test
     end
 
       def test_artist_id()
-      result = @artist1.artist_id
+      result = @exhibit1.artist_id
       assert_equal(1,result)
      end
-   end
+end

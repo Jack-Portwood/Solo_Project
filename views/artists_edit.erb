@@ -1,0 +1,18 @@
+<h1> Edit Artist </h1>
+
+<form  method="POST" action="/exhibits">
+
+  <label for= "name"> Artist Name:</label>
+  <input type = "text" name="artisit_name"
+  id="name" value="<%= @artist.name %>"/>
+
+  <label for= "style"> Artist Style:</label>
+  <input type = "text" name="artisit_style"
+  id="style" value="<%= @artist.style %>"/>
+
+  <label for= "info"> Artist Info:</label>
+  <input type = "text" name="artisit_info"
+  id="info" value="<%= @artist.info %>"/>
+
+  <input type="submit" value="Edit Artist"
+</form>

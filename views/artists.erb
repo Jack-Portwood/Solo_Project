@@ -1,0 +1,12 @@
+<h2>Artists<h2>
+
+  <ul>
+  <% for artist in @artists %>
+
+    <li>
+      <p> Name: <%= artist.name%></p>
+      <p> Style: <%= artist.style%></p>
+      <p> Info: <%= artist.info%></p>
+    </li>
+
+  <%end%>
