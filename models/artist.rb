@@ -46,17 +46,17 @@ class Artist
 
   #DELETE
   def delete()
-    sql= "DELETE FROM students
+    sql= "DELETE FROM artists
     WHERE id =$1"
     values = [@id]
-    Sqlrunner.run(sql, values)
+    SqlRunner.run(sql, values)
   end
 
   def self.find(id)
     sql = "SELECT * FROM artists WHERE id = $1"
     values = [id]
-    result = SqlRunner.run(sql)
-    artist = map_items(artist_data)
+    result = SqlRunner.run(sql, values).first
+    artist = Artist.new (result)
     return artist
   end
 
@@ -66,6 +66,16 @@ class Artist
     artists = map_items(artist_data)
     puts artists
     return artists
+  end
+
+  def update()
+    sql = "UPDATE artists
+    SET
+    (name, style, info) =
+    ($1, $2, $3)
+    WHERE id = $4"
+    values = [@name, @style, @info, @id]
+    SqlRunner.run(sql,values)
   end
 
   def self.map_items(artist_data)

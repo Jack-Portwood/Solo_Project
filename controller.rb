@@ -5,6 +5,28 @@ require_relative('models/artist')
 also_reload('./models/*')
 require('pry')
 
+
+
+ get '/' do
+   @exhibits = Exhibit.all
+   @artists = Artist.all
+   erb(:"visitors/index")
+ end
+
+ get '/artists/:id' do
+   @artist = Artist.find(params['id'])
+   erb(:"visitors/vartists")
+ end
+
+ # post '/default/exhibits/:id/delete' do
+ #   exhibit = Exhibit.find(params['id'])
+ #   exhibit.delete()
+ #   redirect to '/exhibits'
+ # end
+
+
+
+
 ### exhibits
 
   get '/exhibits' do
@@ -16,6 +38,12 @@ require('pry')
     exhibit = Exhibit.new(params)
     exhibit.save
     redirect('/exhibits')
+  end
+
+  post '/default/exhibits/:id/delete' do
+    exhibit = Exhibit.find(params['id'])
+    exhibit.delete()
+    redirect to '/exhibits'
   end
 
 
@@ -50,6 +78,8 @@ require('pry')
     erb(:default)
   end
 
+
+
   get '/default/artists_new' do
     erb(:artists_new)
   end
@@ -59,86 +89,50 @@ require('pry')
     erb(:exhibits_new)
   end
 
-  get '/default/artists_edit/' do
+
+
+  get '/default/artists_edit/:id' do
+    @artist = Artist.find(params[:id].to_i)
     erb(:artists_edit)
   end
 
-  get '/default/exhibits_edit' do
+  post '/default/artists_edit/:id' do
+    updated_artist = Artist.new(params)
+    updated_artist.update
+    redirect to '/default'
+  end
+
+  post '/default/artists/:id/delete' do
+    artist = Artist.find(params['id'])
+    artist.delete()
+    redirect to '/artists'
+  end
+
+
+
+
+
+  get '/default/exhibits_edit/:id' do
+    @artists = Artist.all
+    @exhibit = Exhibit.find(params[:id].to_i)
     erb(:exhibits_edit)
   end
 
-  get '/default/artists_delete' do
-    erb(:artists_delete)
-  end
-
-  post '/default/:id/artists_delete' do
-    artist = Artist.find(params['id'])
-    artist.delete()
-    redirect to '/managers'
-
-end
-
-  get '/default/exhibits_delete' do
-    erb(:exhibits_delete)
-  end
-
-  #
-  post '/default' do
-    Exhibit.new(params).save
+  post '/default/exhibits_edit/:id' do
+    Exhibit.new(params).update
     redirect to '/exhibits'
   end
 
-  post '/default' do
-    Artist.new(params).save
-    redirect to '/artists'
-  end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  get '/default/:id' do
-    @artists = Artist.find(params['id'])
-    erb(:default)
-  end
-
-  get '/default/:id/edit' do
-    @artists = Artist.all
-    @exhibits = Exhibit.all
-    erb(:default)
-  end
-
-  post '/default/:id/edit' do
-    artist = Artist.new(params)
-    artist.update
-    redirect to "/artists/#{params['id']}"
-  end
-
-  # post '/default/:id/edit' do
-  #     exhibit = Exhibit.new(params)
-  #     artist.update
-  #     redirect to "/exhibit/#{params['id']}"
-  #   end
-
-  post '/defaut/:id/delete' do
-    artist = Artist.find(params['id'])
-    artist.delete
-    redirect to '/artists'
-  end
-
-  # post '/defaut/:id/delete' do
-  #   exhibit = Exhibit.find(params['id'])
-  #   artist.delete
-  #   redirect to '/exhibit'
+  #
+  # post '/default' do
+  #   Exhibit.new(params).save
+  #   redirect to '/exhibits'
+  # end
+  #
+  # post '/default' do
+  #   Artist.new(params).save
+  #   redirect to '/artists'
   # end

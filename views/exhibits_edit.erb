@@ -1,16 +1,23 @@
 
-<form  method="POST" action="/exhibits">
+<form  method="post" action="/default/exhibits_edit/<%=@exhibit.id%>" >
 
-  <label for= "name"> Exhibit Name:</label>
-  <input type = "text" name="exhibit_name"
-  id="name"  value="<%= @artist.name %>"/>/>
+  <label for= "title"> Exhibit Title:</label>
+  <input
+  type = "text"
+  name="title"
+  id="title"
+  value="<%= @exhibit.title %>"/>
+
 
   <label for= "style"> Exhibit Style:</label>
-  <input type = "text" name="exhibit_style"
+  <input
+  type = "text"
+  name="style"
+   value="<%= @exhibit.style %>"
   id="style"/>
 
   <label for= "info"> Exhibit Info:</label>
-  <input type = "text" name="Exhibit_info"
+  <input type = "text" name="info" value="<%= @exhibit.info %>"
   id="info"/>
 
   <label for="artist_id">Artist ID:</label>
@@ -20,5 +27,5 @@
       <% end %>
     </select>
 
-  <input type="submit" value=" Edit Exhibit"
+  <input type="submit" value=" Edit Exhibit">
 </form>

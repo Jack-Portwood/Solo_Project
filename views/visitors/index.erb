@@ -1,0 +1,9 @@
+<h1>Welcome To Kool Biz Galliers</h1>
+
+<h2>Home of Art</h2>
+
+<% for artist in @artists %>
+
+    <p><a href="/artists/<%= artist.id%>"> Name: <%= artist.name%></a></p>
+
+    <% end %>

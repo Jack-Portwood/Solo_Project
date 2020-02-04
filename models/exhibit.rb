@@ -56,7 +56,7 @@ class Exhibit
     (title, style, info, artist_id ) =
     ($1, $2, $3, $4)
     WHERE id = $5"
-    values = [@title, @style, @info, @artist_id ]
+    values = [@title, @style, @info, @artist_id ,@id ]
     SqlRunner.run(sql,values)
   end
 
@@ -79,9 +79,8 @@ class Exhibit
      sql = "SELECT * FROM exhibits
      WHERE id =$1"
      values = [id]
-     result = Sqlrunner.rn(sql, values).first
-     exhibit = Exhibit.new(result)
-     return exhibit
+     result = SqlRunner.run(sql, values)
+     return Exhibit.new(result.first)
    end
 
   def artist()

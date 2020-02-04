@@ -1,4 +1,4 @@
-<h2>Artists<h2>
+<h2>Artists</h2>
 
   <ul>
   <% for artist in @artists %>
@@ -7,6 +7,14 @@
       <p> Name: <%= artist.name%></p>
       <p> Style: <%= artist.style%></p>
       <p> Info: <%= artist.info%></p>
+      <p><a href="/default/artists_edit/<%=artist.id%>">edit artist</a></p>
+      <!-- <p><a href="/default/artists_de/<%=artist.id%>">delete artist</a></p> -->
+      <!-- post '/default/artists/:id/delete' -->
+      <form action="/default/artists/<%=artist.id%>/delete" method="POST">
+        <input type="submit" value='Remove Artist'>
+      </form>
     </li>
+    <hr/>
+
 
   <%end%>

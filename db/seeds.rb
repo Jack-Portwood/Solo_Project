@@ -8,11 +8,10 @@ require('pry')
   artist1 = Artist.new({'name' => 'David Shrigley','style' => 'Post-Mordern',
     'info' => "something something artist"})
   artist2 = Artist.new({'name' => 'Jamie Reid','style' => 'Décollage',
-    'info' => "Born 16 January 1947 in London, United Kingdom. Known for his anarchist connections. His work, featuring letters cut from newspaper headlines in the style of a ransom note, came close to defining the image of punk, in the UK. "})
+    'info' => "Punk"})
 
-
-  artist1.save
-  artist2.save
+  artist1.save()
+  artist2.save()
 
  exhibit1 = Exhibit.new({
    'title' => 'Our Times',
@@ -28,6 +27,3 @@ require('pry')
 
  exhibit1.save
  exhibit2.save
-
-
- 

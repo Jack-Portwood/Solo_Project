@@ -1,22 +1,15 @@
-
-  <h1>Weclome To Kool Biz Galliers</h1>
-
-  <h2>Home of Art</h2>
-
-    <ul>
+  <ul>
       <% for exhibit in @exhibits %>
 
-        <li>
+
           <p> Title: <%= exhibit.title%></p>
           <p> Style: <%= exhibit.style%></p>
           <p> Info: <%= exhibit.info%></p>
-        </li>
-
+          <p> Artist:<%= exhibit.artist.name %></p>
+          <p><a href="/default/exhibits_edit/<%=exhibit.id%>">edit exhibit</a></p>
+          <form action="/default/exhibits/<%=exhibit.id%>/delete" method="POST">
+            <input type="submit" value='Remove Exhibits'>
+          </form>
+            <hr/>
       <%end%>
     <ul>
-
-
-
-
-
-  
