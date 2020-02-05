@@ -78,6 +78,14 @@ class Artist
     SqlRunner.run(sql,values)
   end
 
+  def exhibits
+    sql = "SELECT * FROM exhibits WHERE artist_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    exhibits = results.map{|exhibit| Exhibit.new(exhibit)}
+    return exhibits
+  end
+
   def self.map_items(artist_data)
     return artist_data.map { |artist| Artist.new(artist)}
   end

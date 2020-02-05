@@ -1,9 +1,11 @@
-<h1>Welcome To Kool Biz Galliers</h1>
+<h1>Welcome To Kool Biz Gallier$</h1>
 
-<h2>Home of Art</h2>
+<h3> We're only in it for the money </h3>
+
+<h2>Featured Artists</h2>
 
 <% for artist in @artists %>
 
-    <p><a href="/artists/<%= artist.id%>"> Name: <%= artist.name%></a></p>
+    <p><a href="/artists/<%= artist.id%>"><%= artist.name%></a></p>
 
     <% end %>

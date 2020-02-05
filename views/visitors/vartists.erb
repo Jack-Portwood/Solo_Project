@@ -1,3 +1,20 @@
-<p> Name: <%= @artist.name%></p>
-<p> Style: <%= @artist.style%></p>
-<p> Info: <%= @artist.info%></p>
+
+  <div class="artists">
+    <p> Name: <%= @artist.name%></p>
+    <p> Style: <%= @artist.style%></p>
+    <p> Info: <%= @artist.info%></p>
+  <div>
+
+    <hr/>
+
+  <div class="exhibits">
+    <% @artist.exhibits.each do |exhibit| %>
+    <p> <%= exhibit.title %> </p>
+    <p><%= exhibit.style%> </p>
+    <p><%= exhibit.info%> </p>
+  <div>
+    <div class="kingsley">
+    <img src="https://i.imgur.com/Izdi21R.gif">
+    </div>
+    <hr/>
+  <% end %>

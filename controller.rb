@@ -14,15 +14,14 @@ require('pry')
  end
 
  get '/artists/:id' do
-   @artist = Artist.find(params['id'])
+   @artist = Artist.find(params['id'].to_i)
    erb(:"visitors/vartists")
  end
 
- # post '/default/exhibits/:id/delete' do
- #   exhibit = Exhibit.find(params['id'])
- #   exhibit.delete()
- #   redirect to '/exhibits'
- # end
+ get '/exhibits/:id' do
+   @exhibit = Exhibit.find(params['id'])
+   erb(:"vistitors/vexhibits")
+ end
 
 
 
@@ -45,7 +44,6 @@ require('pry')
     exhibit.delete()
     redirect to '/exhibits'
   end
-
 
 
 
@@ -122,17 +120,3 @@ require('pry')
     Exhibit.new(params).update
     redirect to '/exhibits'
   end
-
-
-
-
-  #
-  # post '/default' do
-  #   Exhibit.new(params).save
-  #   redirect to '/exhibits'
-  # end
-  #
-  # post '/default' do
-  #   Artist.new(params).save
-  #   redirect to '/artists'
-  # end

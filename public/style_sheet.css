@@ -1,3 +1,66 @@
 body {
   font-family: sans-serif;
 }
+
+header img{
+
+  height: 70px;
+  margin-left: 25px;
+
+
+}
+
+
+body{
+  height: 125vh;
+  background-image:url(https://www.artpeoplegallery.com/wp-content/uploads/2015/07/0000000000000000000000000000www.artmadesivos.com_.br-a-064-30af.jpg);
+  background-size: cover;
+  font-family: sans-serif;
+  margin-top: 80px;
+  padding: 30px;
+}
+
+main{
+  color: white;
+
+}
+
+header {
+  background-color: grey;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 80px 1px black;
+}
+
+header * {
+  display: inline;
+}
+
+header li {
+  margin: 20px;
+}
+
+header li a {
+  color: white;
+  text-decoraction: none;
+}
+
+
+.artists{
+  font-family: sans-serif;
+  font-size: 25px
+}
+
+.exhibits{
+  font-family: sans-serif;
+  font-size: 25px
+}
+
+.kingsley{
+  margin-left: 700px ;
+}
